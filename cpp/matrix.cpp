@@ -1,0 +1,43 @@
+#include "../headers/matrix.h"
+
+// Конструктор
+Matrix::Matrix(int size_n, int size_m) : rows(size_n), cols(size_m), matrix(rows, std::vector<int>(cols)) {}
+
+// Методы
+void Matrix::print()
+{
+    for (std::vector<int> row : matrix)
+    {
+        std::cout << "| ";
+        for (int col : row)
+            std::cout << col << " ";
+        std::cout << "|\n";
+    }
+}
+
+bool Matrix::set(int elem, int row, int col) // !!!
+{
+    if (!(row >= rows || col >= cols))
+    {
+        matrix[row][col] = elem;
+        return true;
+    }
+
+    return false;
+}
+
+void Matrix::transpose()
+{
+    std::vector<std::vector<int>> transposed(cols, std::vector<int>(rows));
+
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            transposed[j][i] = matrix[i][j];
+
+    matrix = transposed;
+
+    std::swap(rows, cols);
+}
+
+int Matrix::getRows() { return rows; }
+int Matrix::getCols() { return cols; }
