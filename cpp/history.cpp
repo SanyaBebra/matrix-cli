@@ -2,20 +2,19 @@
 
 void History::print()
 {
-    int index = 1;
+    int number = 1;
     for (Matrix mat : history)
     {
-        std::cout << "Matrix number " << index << std::endl;
+        std::cout << "Number " << number << std::endl;
         mat.print();
         std::cout << "\n\n";
 
-        index++;
+        number++;
     }
 }
 
 void History::push(Matrix m) { history.push_back(m); }
 
-void History::transpose(int index)
-{
-    history[index].transpose();
-}
+void History::transpose(int index) { history[index].transpose(); }
+
+int History::size() { return history.size(); }

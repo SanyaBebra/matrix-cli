@@ -9,40 +9,55 @@ int main()
 {
   History history;
 
-  show_header(1.4);
+  show_header(1.5);
   show_menu();
 
   int option = 0;
   std::cout << "Option: ";
-  while (std::cin >> option)
+  while (true)
   {
-    if (option == 1)
+    std::cin >> option;
+
+    if (std::cin.fail())
     {
+      std::cin.clear();
+      std::cin.ignore(32767, '\n');
+      std::cout << "Oops... Invalid value!" << std::endl;
+    }
+
+    switch (option)
+    {
+    case 1:
       int n, m;
       std::cout << "Size 'n': ";
       std::cin >> n;
       std::cout << "Size 'm': ";
       std::cin >> m;
 
-      Matrix matrix = create_matrix(n, m);
-      history.push(matrix);
+      if (n > 0 && m > 0)
+      {
+        Matrix matrix = create_matrix(n, m);
+        history.push(matrix);
 
-      matrix.print();
-    }
-    else if (option == 2)
-    {
+        matrix.print();
+      }
+
+      break;
+    case 2:
       history.print();
-    }
-    else if (option == 3)
-    {
+      break;
+    case 3:
       std::cout << "Change matrix: " << std::endl;
       history.print();
 
-      std::cout << "> ";
+      std::cout << "Number: ";
       int number;
       std::cin >> number;
 
-      history.transpose(number - 1);
+      if (number > 0 && number <= history.size())
+        history.transpose(number - 1);
+
+      break;
     }
 
     std::cout << "Option: ";
