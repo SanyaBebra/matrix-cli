@@ -12,6 +12,7 @@ class History
 public:
     void print();
     void push(Matrix m);
+    void transpose(int index);
 };
 
 #endif

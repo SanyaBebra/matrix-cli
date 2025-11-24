@@ -1,28 +1,36 @@
 #include <iostream>
 #include <vector>
+#include "../headers/matrix.h"
 
-void show_header(double version) {
+void show_header(double version)
+{
   std::cout << "Version " << version << std::endl;
   std::cout << "Matrix CLI" << std::endl;
 }
 
-void show_menu() {
+void show_menu()
+{
   std::cout << "\n\n-========================-\n\n";
   std::cout << "\t  Menu\n\n";
   std::cout << "1 - Add a matrix" << std::endl;
   std::cout << "2 - Show all matrices" << std::endl;
-  // std::cout << "3 - Trasport the matrix" << std::endl;
+  std::cout << "3 - Trasport the matrix" << std::endl;
   std::cout << "\n\n-========================-\n\n";
 }
 
-std::vector< std::vector<int> > create_matrix(int size) {
-  std::vector< std::vector<int> > matrix(size, std::vector<int>(size)); 
+Matrix create_matrix(int n, int m)
+{
+  Matrix matrix(n, m);
 
-    for (int i = 0; i < size; i++)
-      for (int j = 0; j < size; j++) {
-        std::cout << "A[" << i + 1 << "][" << j + 1 << "] = ";
-        std::cin >> matrix[i][j]; 
-      }
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++)
+    {
+      std::cout << "A[" << i << "][" << j << "] = ";
+      int elem;
+      std::cin >> elem;
 
-    return matrix;
+      matrix.set(elem, i, j);
+    }
+
+  return matrix;
 }

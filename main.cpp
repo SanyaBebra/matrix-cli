@@ -9,7 +9,7 @@ int main()
 {
   History history;
 
-  show_header(1.3);
+  show_header(1.4);
   show_menu();
 
   int option = 0;
@@ -24,18 +24,7 @@ int main()
       std::cout << "Size 'm': ";
       std::cin >> m;
 
-      Matrix matrix(n, m);
-
-      for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-        {
-          int elem;
-          std::cout << "A[" << i << "][" << j << "] = ";
-          std::cin >> elem;
-
-          matrix.set(elem, i, j);
-        }
-
+      Matrix matrix = create_matrix(n, m);
       history.push(matrix);
 
       matrix.print();
@@ -43,6 +32,17 @@ int main()
     else if (option == 2)
     {
       history.print();
+    }
+    else if (option == 3)
+    {
+      std::cout << "Change matrix: " << std::endl;
+      history.print();
+
+      std::cout << "> ";
+      int number;
+      std::cin >> number;
+
+      history.transpose(number - 1);
     }
 
     std::cout << "Option: ";

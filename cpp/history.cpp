@@ -14,3 +14,8 @@ void History::print()
 }
 
 void History::push(Matrix m) { history.push_back(m); }
+
+void History::transpose(int index)
+{
+    history[index].transpose();
+}

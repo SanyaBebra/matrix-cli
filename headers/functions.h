@@ -2,9 +2,10 @@
 #define FUNCTIONS_H
 
 #include <vector>
+#include "matrix.h"
 
 void show_header(double version);
 void show_menu();
-std::vector< std::vector<int> > create_matrix(int size);
+Matrix create_matrix(int n, int m);
 
 #endif
