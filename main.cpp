@@ -1,21 +1,22 @@
 #include <iostream>
 #include <cstdlib>
 #include <vector>
+#include "headers/history.h"
 #include "headers/functions.h"
 #include "headers/matrix.h"
-#include "headers/history.h"
 
 int main()
 {
   History history;
 
-  show_header(1.5);
+  show_header(1.6);
   show_menu();
 
-  int option = 0;
-  std::cout << "Option: ";
-  while (true)
+  int option;
+  bool running = true;
+  while (running)
   {
+    std::cout << "Option: ";
     std::cin >> option;
 
     if (std::cin.fail())
@@ -23,6 +24,7 @@ int main()
       std::cin.clear();
       std::cin.ignore(32767, '\n');
       std::cout << "Oops... Invalid value!" << std::endl;
+      continue;
     }
 
     switch (option)
@@ -47,20 +49,18 @@ int main()
       history.print();
       break;
     case 3:
-      std::cout << "Change matrix: " << std::endl;
-      history.print();
-
-      std::cout << "Number: ";
-      int number;
-      std::cin >> number;
-
-      if (number > 0 && number <= history.size())
-        history.transpose(number - 1);
-
+      operation(history, Matrix::transpose);
+      break;
+    case 4:
+      operation(history, Matrix::takeOutMinus);
+      break;
+    case 0:
+      running = false;
+      break;
+    default:
+      std::cout << "Oops... Invalid value!" << std::endl;
       break;
     }
-
-    std::cout << "Option: ";
   }
 
   system("pause");

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "../headers/matrix.h"
+#include "../headers/history.h"
 
 void show_header(double version)
 {
@@ -12,9 +13,11 @@ void show_menu()
 {
   std::cout << "\n\n-========================-\n\n";
   std::cout << "\t  Menu\n\n";
-  std::cout << "1 - Add a matrix" << std::endl;
-  std::cout << "2 - Show all matrices" << std::endl;
-  std::cout << "3 - Trasport the matrix" << std::endl;
+  std::cout << "1 - Add" << std::endl;
+  std::cout << "2 - Show all" << std::endl;
+  std::cout << "3 - Traspose" << std::endl;
+  std::cout << "4 - Take out minus" << std::endl;
+  std::cout << "0 - Exit" << std::endl;
   std::cout << "\n\n-========================-\n\n";
 }
 
@@ -33,4 +36,17 @@ Matrix create_matrix(int n, int m)
     }
 
   return matrix;
+}
+
+void operation(History &history, void (Matrix::*method)())
+{
+  std::cout << "Change matrix: " << std::endl;
+  history.print();
+
+  std::cout << "Number: ";
+  int number;
+  std::cin >> number;
+
+  if (number > 0 && number <= history.size())
+    (history.get(number - 1).*method)();
 }

@@ -19,6 +19,8 @@ public:
 
     void transpose();
 
+    void takeOutMinus();
+
     int getRows();
     int getCols();
 };

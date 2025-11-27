@@ -39,5 +39,11 @@ void Matrix::transpose()
     std::swap(rows, cols);
 }
 
+void Matrix::takeOutMinus() {
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            matrix[i][j] *= -1;
+}
+
 int Matrix::getRows() { return rows; }
 int Matrix::getCols() { return cols; }
