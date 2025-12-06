@@ -9,7 +9,6 @@ int main()
 {
   History history;
 
-  show_header(1.6);
   show_menu();
 
   int option;
@@ -30,18 +29,16 @@ int main()
     switch (option)
     {
     case 1:
-      int n, m;
-      std::cout << "Size 'n': ";
-      std::cin >> n;
-      std::cout << "Size 'm': ";
-      std::cin >> m;
+      int rows, cols;
+      std::cout << "Rows: ";
+      std::cin >> rows;
+      std::cout << "Columns: ";
+      std::cin >> cols;
 
-      if (n > 0 && m > 0)
+      if (rows > 0 && cols > 0)
       {
-        Matrix matrix = create_matrix(n, m);
+        Matrix matrix = create_matrix(rows, cols);
         history.push(matrix);
-
-        matrix.print();
       }
 
       break;
@@ -53,6 +50,13 @@ int main()
       break;
     case 4:
       operation(history, Matrix::takeOutMinus);
+      break;
+    case 5:
+      std::cout << "Number: ";
+      int number;
+      std::cin >> number;
+
+      operation(history, Matrix::mult, number);
       break;
     case 0:
       running = false;

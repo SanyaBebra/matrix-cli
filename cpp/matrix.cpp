@@ -8,10 +8,9 @@ void Matrix::print()
 {
     for (std::vector<int> row : matrix)
     {
-        std::cout << "| ";
         for (int col : row)
-            std::cout << col << " ";
-        std::cout << "|\n";
+            std::cout << col << "\t";
+        std::cout << "\n\n";
     }
 }
 
@@ -39,10 +38,18 @@ void Matrix::transpose()
     std::swap(rows, cols);
 }
 
-void Matrix::takeOutMinus() {
+void Matrix::takeOutMinus()
+{
     for (int i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             matrix[i][j] *= -1;
+}
+
+void Matrix::mult(int number)
+{
+    for (int i = 0; i < rows; i++)
+        for (int j = 0; j < cols; j++)
+            matrix[i][j] *= number;
 }
 
 int Matrix::getRows() { return rows; }

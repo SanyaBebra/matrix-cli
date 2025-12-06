@@ -13,13 +13,13 @@ class Matrix
 public:
     Matrix(int size_n = 1, int size_m = 1);
 
-    void print(); // ...
+    void print(); 
 
     bool set(int elem, int row, int col); // !!!
 
     void transpose();
-
     void takeOutMinus();
+    void mult(int number);
 
     int getRows();
     int getCols();
