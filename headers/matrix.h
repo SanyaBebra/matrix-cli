@@ -16,10 +16,13 @@ public:
     void print(); 
 
     bool set(int elem, int row, int col); // !!!
+    int get(int row, int col);
 
     void transpose();
     void takeOutMinus();
     void mult(int number);
+    void sum(Matrix& m);
+    void subtraction(Matrix& m);
 
     int getRows();
     int getCols();

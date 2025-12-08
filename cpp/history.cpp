@@ -5,7 +5,7 @@ void History::print()
     int number = 1;
     for (Matrix mat : history)
     {
-        std::cout << "Number " << number << std::endl;
+        std::cout << "Index " << number << std::endl;
         mat.print();
         std::cout << "\n\n";
 

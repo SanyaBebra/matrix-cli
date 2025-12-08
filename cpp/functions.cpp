@@ -12,6 +12,7 @@ void show_menu()
   std::cout << "3 - Traspose" << std::endl;
   std::cout << "4 - Take out minus" << std::endl;
   std::cout << "5 - Multiply on the number" << std::endl;
+  std::cout << "6 - Sum/difference of matrices" << std::endl;
   std::cout << "0 - Exit" << std::endl;
   std::cout << "\n\n-========================-\n\n";
 }
@@ -57,4 +58,10 @@ void operation(History &history, void (Matrix::*method)(int), int number)
 
   if (index > 0 && index <= history.size())
     (history.get(index - 1).*method)(number);
+}
+
+void operation(History &history, void (Matrix::*method)(Matrix &m), int index_1, int index_2)
+{
+  if ((index_1 > 0 && index_2 <= history.size()) && (index_1 > 0 && index_2 <= history.size()))
+    (history.get(index_1 - 1).*method)(history.get(index_2 - 1));
 }

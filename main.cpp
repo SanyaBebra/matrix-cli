@@ -58,6 +58,20 @@ int main()
 
       operation(history, Matrix::mult, number);
       break;
+    case 6:
+      std::cout << "Index Op Index: ";
+      int index_1, index_2;
+      char op;
+      std::cin >> index_1 >> op >> index_2;
+
+      if (op == '+')
+        operation(history, Matrix::sum, index_1, index_2);
+      else if (op == '-')
+        operation(history, Matrix::subtraction, index_1, index_2);
+      else
+        std::cout << "Oops... Invalid operation!" << std::endl;
+
+      break;
     case 0:
       running = false;
       break;
