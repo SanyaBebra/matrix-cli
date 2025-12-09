@@ -1,14 +1,11 @@
-#include <iostream>
-#include <vector>
-#include "../headers/matrix.h"
-#include "../headers/history.h"
+#include "../headers/functions.h"
 
 void show_menu()
 {
   std::cout << "\n\n-========================-\n\n";
   std::cout << "\t  Menu\n\n";
   std::cout << "1 - Add" << std::endl;
-  std::cout << "2 - Show all" << std::endl;
+  std::cout << "2 - Show history" << std::endl;
   std::cout << "3 - Traspose" << std::endl;
   std::cout << "4 - Take out minus" << std::endl;
   std::cout << "5 - Multiply on the number" << std::endl;

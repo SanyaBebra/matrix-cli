@@ -1,6 +1,7 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include <iostream>
 #include <vector>
 #include "matrix.h"
 #include "history.h"
