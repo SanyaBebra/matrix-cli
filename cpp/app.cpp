@@ -2,10 +2,9 @@
 
 void App::run()
 {
-    show_menu();
-
     while (running)
     {
+        show_menu();
         handleMenu();
     }
 }
@@ -31,6 +30,7 @@ void App::handleMenu()
         break;
     case 2:
         actionShowHistory();
+        system("pause");
         break;
     case 3:
         actionTranspose();
@@ -51,6 +51,8 @@ void App::handleMenu()
         std::cout << "Oops... Invalid value!" << std::endl;
         break;
     }
+
+    system("cls");
 }
 
 void App::actionCreateMatrix()

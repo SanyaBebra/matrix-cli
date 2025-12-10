@@ -2,6 +2,7 @@
 #define APP_H
 
 #include <iostream>
+#include <cstdlib>
 #include "functions.h"
 #include "matrix.h"
 #include "history.h"
